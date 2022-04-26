@@ -1,0 +1,24 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        id: tests-workflow
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.14.0
+          cache: npm
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/eslint/
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock', '**/.eslintrc.js') }}
+      - name: Install
+        run: npm ci
+      - name: Lint
+        run: npm run lint
