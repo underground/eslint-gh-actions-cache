@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./src/ --cache --cache-strategy content --cache-location ~/.cache/eslint/demo"
+    "lint": "eslint ./src/ --cache --cache-location node_modules/.cache/eslint/"
   },
   "keywords": [],
   "author": "",
