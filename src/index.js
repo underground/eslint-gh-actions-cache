@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-console.log('lets generate a bunch of random files for eslint to lint!')
+console.log('lets generate a bunch of random files for eslint to lint!!')
 
 fs.readFile('./someJs.js', (err, data) => {
   if (err) {
