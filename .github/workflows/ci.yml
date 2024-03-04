@@ -16,11 +16,14 @@ jobs:
           node-version: 16.14.0
           cache: npm
       - name: Cache
+        id: cache-eslint
         uses: actions/cache@v4
         with:
           path: |
             node_modules/.cache/eslint/
           key: ${{ runner.os }}-eslint-cache-${{ github.ref_name }}
+      - name: Debug cache hit
+        run: echo ${{ steps.cache-eslint.outputs.cache-hit }}
       - name: Install
         run: npm ci
       - name: Lint
